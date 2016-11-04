@@ -7,7 +7,7 @@ let axios = require('axios'),
 
 const request = axios.create({
   baseURL: config.POKEAPI_URL,
-  timeout: 10000
+  timeout: 30000
 });
 
 request.defaultResponse = (reqPromise) => {
