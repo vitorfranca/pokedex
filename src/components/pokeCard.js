@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import request from '../services/request';
 import R from 'ramda';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
+import { selectPokemon } from '../actions';
 
 import PokeImage from './pokeImage';
-
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class PokeCard extends Component {
   constructor(props) {
@@ -13,19 +14,21 @@ class PokeCard extends Component {
   }
 
   componentWillMount() {
+    this.props.dispatch(actions.getPokemonDetails(this.props.pokemon));
     request.get(this.props.pokemon.url).then((result) => {
-      console.log('bla', result.data);
       this.setState({ pokemon: result.data });
     });
   }
 
-  render () {
-    const defaultImage = 'https://upload.wikimedia.org/wikipedia/en/3/39/Pokeball.PNG';
+  selectPokemon() {
+    this.props.dispatch(selectPokemon(this.state.pokemon))
+  }
+
+  render() {
     const cardStyle = {
-      width: '96px',
       margin: '10px',
       backgroundColor: 'white',
-      padding: '0',
+      padding: 20,
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'space-between',
@@ -33,12 +36,12 @@ class PokeCard extends Component {
     }
 
     return (
-      <li style={cardStyle}>
-        <PokeImage image={R.propOr(defaultImage, 'front_default')(this.state.pokemon.sprites)} />
+      <li style={cardStyle} onClick={this.selectPokemon.bind(this)}>
+        <PokeImage image={R.propOr(null, 'front_default')(this.state.pokemon.sprites)} />
         <p style={{padding: '10px'}}>{this.props.pokemon.name}</p>
       </li>
     );
   }
 }
 
-export default (PokeCard);
+export default connect()(PokeCard);
