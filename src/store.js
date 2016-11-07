@@ -22,5 +22,6 @@ let configureStore = (preloadedState) => {
 
 module.exports = {
   set: configureStore,
-  getState: () => currentStore && currentStore.getState() 
+  getState: () => currentStore && currentStore.getState(),
+  current: currentStore
 };

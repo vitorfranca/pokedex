@@ -3,11 +3,6 @@ import { connect } from 'react-redux';
 import PouchDB from 'pouchdb-browser';
 import R from 'ramda';
 
-// import reducers from '../reducers';
-// import { createStore } from 'redux';
-// let store = createStore(reducers);
-// console.log(store.getState());
-
 let pouch = new PouchDB('pokedex');
 
 let db = ({ pokemon }) => {
@@ -28,13 +23,6 @@ export function getPokedex() {
     console.log(err);
   });
 }
-
-// class DB extends Component {
-//   render () {
-//     pouch.bulkDocs(this.props.pokemon));
-//     return (<span></span>);
-//   }
-// }
 
 const mapStateToProps = (state) => {
   return { pokemon: state.pokemon };

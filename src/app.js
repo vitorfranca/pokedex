@@ -7,6 +7,8 @@ import PokeList from './components/pokeList';
 import PokeDetails from './components/pokeDetails';
 // import Menu from './components/menu';
 
+import db from './services/database';
+
 class App extends React.Component {
   componentWillMount() {
     this.props.dispatch(actions.getPokedex());
@@ -15,8 +17,8 @@ class App extends React.Component {
   render() {
     const { pokemon, selectedPokemon } = this.props;
     return (
-      <div>
-        { !selectedPokemon && <PokeList pokemon={pokemon} /> }
+      <div style={{width: '100vw', height: '100vh'}}>
+        <PokeList pokemon={pokemon} />
         { selectedPokemon && <PokeDetails /> }
       </div>
     );

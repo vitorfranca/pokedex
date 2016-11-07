@@ -10,18 +10,18 @@ import PokeImage from './pokeImage';
 class PokeCard extends Component {
   constructor(props) {
     super(props);
-    this.state = { pokemon: {} };
+    this.state = { pokemon: this.props.pokemon };
   }
 
   componentWillMount() {
-    this.props.dispatch(actions.getPokemonDetails(this.props.pokemon));
+    // this.props.dispatch(actions.getPokemonDetails(this.props.pokemon));
     request.get(this.props.pokemon.url).then((result) => {
       this.setState({ pokemon: result.data });
     });
   }
 
   selectPokemon() {
-    this.props.dispatch(selectPokemon(this.state.pokemon))
+    this.props.dispatch(selectPokemon(this.state.pokemon));
   }
 
   render() {
