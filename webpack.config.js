@@ -35,6 +35,10 @@ module.exports = {
       {
         from: 'favicon.ico',
         to: 'favicon.ico'
+      },
+      {
+        from: 'img',
+        to: 'img'
       }
     ]),
     new webpack.optimize.UglifyJsPlugin({

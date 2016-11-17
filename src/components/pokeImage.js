@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import R from 'ramda';
 
+const getIdFromUrl = (url) => {
+  return url.match(/http\:\/\/pokeapi.co\/api\/v2\/pokemon\/(\d+)\//)[1];
+}
+
 class PokeImage extends Component {
   imageStyle (size) {
     return {
@@ -11,12 +15,10 @@ class PokeImage extends Component {
   }
   render () {
     const defaultImage = 'https://upload.wikimedia.org/wikipedia/en/3/39/Pokeball.PNG';
-
+    const id = this.props.pokemon.id || getIdFromUrl(this.props.pokemon.url);
     return (
       <div>
-        { this.props.image ?
-          <img src={this.props.image} style={this.imageStyle()} /> :
-          <img src={defaultImage} style={{...this.imageStyle(), padding: 20}} /> }
+        <img src={`img/${id}.png`} style={this.imageStyle()} />
       </div>
     );
   }

@@ -15,9 +15,11 @@ class PokeCard extends Component {
 
   componentWillMount() {
     // this.props.dispatch(actions.getPokemonDetails(this.props.pokemon));
-    // request.get(this.props.pokemon.url).then((result) => {
-    //   this.setState({ pokemon: result.data });
-    // });
+    request.get(this.props.pokemon.url).then((result) => {
+      this.setState({
+        pokemon: Object.assign({}, this.props.pokemon, result.data)
+      });
+    });
   }
 
   selectPokemon() {
@@ -36,14 +38,12 @@ class PokeCard extends Component {
       width: 150
     }
 
-    // <PokeImage image={R.propOr(null, 'front_default')(this.state.pokemon.sprites)} />
-    return (
-      <p style={cardStyle}
-        onClick={this.selectPokemon.bind(this)}>
-
+    return (<div style={cardStyle}>
+      <PokeImage pokemon={this.state.pokemon} />
+      <p onClick={this.selectPokemon.bind(this)}>
         {this.props.pokemon.name}
       </p>
-    );
+    </div>);
   }
 }
 

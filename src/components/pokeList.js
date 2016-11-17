@@ -60,7 +60,7 @@ class PokeList extends React.Component {
           data: pkmn,
           style: {
             opacity: spring(1, springConfig),
-            height: spring(65, springConfig)
+            height: spring(160, springConfig)
           }
         }), this.state.pokemon)}>
 
