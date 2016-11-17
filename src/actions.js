@@ -6,6 +6,7 @@ import pokedex from './services/pokedex';
 export const GET_POKEDEX = 'GET_POKEDEX';
 export const SELECT_POKEMON = 'SELECT_POKEMON';
 export const GET_POKEMON_DETAILS = 'GET_POKEMON_DETAILS';
+export const FILTER = 'FILTER';
 
 export function getPokedex() {
   return (dispatch) => {
@@ -34,4 +35,11 @@ export function getPokemonDetails(pokemon) {
       });
     });
   }
+};
+
+export function filter(filter) {
+  return {
+    type: FILTER,
+    filter: filter
+  };
 };

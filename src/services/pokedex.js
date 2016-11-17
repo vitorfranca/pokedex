@@ -23,42 +23,42 @@ module.exports = {
         url: "http://pokeapi.co/api/v2/pokemon/3/",
         name: "venusaur"
       },
-      // {
-      //   url: "http://pokeapi.co/api/v2/pokemon/4/",
-      //   name: "charmander"
-      // },
-      // {
-      //   url: "http://pokeapi.co/api/v2/pokemon/5/",
-      //   name: "charmeleon"
-      // },
-      // {
-      //   url: "http://pokeapi.co/api/v2/pokemon/6/",
-      //   name: "charizard"
-      // },
-      // {
-      //   url: "http://pokeapi.co/api/v2/pokemon/7/",
-      //   name: "squirtle"
-      // },
-      // {
-      //   url: "http://pokeapi.co/api/v2/pokemon/8/",
-      //   name: "wartortle"
-      // },
-      // {
-      //   url: "http://pokeapi.co/api/v2/pokemon/9/",
-      //   name: "blastoise"
-      // },
-      // {
-      //   url: "http://pokeapi.co/api/v2/pokemon/10/",
-      //   name: "caterpie"
-      // },
-      // {
-      //   url: "http://pokeapi.co/api/v2/pokemon/11/",
-      //   name: "metapod"
-      // },
-      // {
-      //   url: "http://pokeapi.co/api/v2/pokemon/12/",
-      //   name: "butterfree"
-      // },
+      {
+        url: "http://pokeapi.co/api/v2/pokemon/4/",
+        name: "charmander"
+      },
+      {
+        url: "http://pokeapi.co/api/v2/pokemon/5/",
+        name: "charmeleon"
+      },
+      {
+        url: "http://pokeapi.co/api/v2/pokemon/6/",
+        name: "charizard"
+      },
+      {
+        url: "http://pokeapi.co/api/v2/pokemon/7/",
+        name: "squirtle"
+      },
+      {
+        url: "http://pokeapi.co/api/v2/pokemon/8/",
+        name: "wartortle"
+      },
+      {
+        url: "http://pokeapi.co/api/v2/pokemon/9/",
+        name: "blastoise"
+      },
+      {
+        url: "http://pokeapi.co/api/v2/pokemon/10/",
+        name: "caterpie"
+      },
+      {
+        url: "http://pokeapi.co/api/v2/pokemon/11/",
+        name: "metapod"
+      },
+      {
+        url: "http://pokeapi.co/api/v2/pokemon/12/",
+        name: "butterfree"
+      },
       // {
       //   url: "http://pokeapi.co/api/v2/pokemon/13/",
       //   name: "weedle"

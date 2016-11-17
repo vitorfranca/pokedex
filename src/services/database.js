@@ -17,7 +17,6 @@ export function getPokedex() {
     include_docs: true,
     attachments: true
   }).then(function (result) {
-    console.log('result', result);
     return R.pluck('doc', result.rows);
   }).catch(function (err) {
     console.log(err);

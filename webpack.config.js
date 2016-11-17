@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -26,6 +27,16 @@ module.exports = {
       return [require('autoprefixer'), require('precss')];
   },
   plugins: [
+    new CopyWebpackPlugin([
+      {
+        from: 'index.html',
+        to: 'index.html'
+      },
+      {
+        from: 'favicon.ico',
+        to: 'favicon.ico'
+      }
+    ]),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,

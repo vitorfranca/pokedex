@@ -2,9 +2,10 @@
 
 import * as actions from './actions';
 import R from 'ramda';
+import humanize from 'humanize-string';
 
 const getIdFromUrl = (url) => {
-  return url.match(/http\:\/\/pokeapi.co\/api\/v2\/pokemon\/(\d)\//)[1];
+  return url.match(/http\:\/\/pokeapi.co\/api\/v2\/pokemon\/(\d+)\//)[1];
 }
 
 let reducer = (state = {}, action) => {
@@ -20,7 +21,8 @@ let reducer = (state = {}, action) => {
         pokemon: R.map((pkmn) => {
           return {
             ...pkmn,
-            _id: getIdFromUrl(pkmn.url)
+            _id: getIdFromUrl(pkmn.url),
+            name: humanize(pkmn.name)
           };
         }, action.pokemon)
       });
@@ -32,6 +34,9 @@ let reducer = (state = {}, action) => {
       const i = R.findIndex(R.propEq('name', action.details.name))(state.pokemon);
       const newPkmnList = R.adjust(R.merge(action.details))(i)(state.pokemon);
       return newState({ pokemon: newPkmnList });
+
+    case actions.FILTER:
+      return newState({ filter: action.filter });
 
     default:
       return state;

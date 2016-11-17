@@ -6,11 +6,10 @@
   "scripts": {
     "test": "node_modules/mocha/bin/mocha --compilers js:babel-core/register",
     "test-watch": "npm test -- -w",
-    "copy": "mkdir -p public && cp index.html public/index.html",
-    "build": "npm run copy && npm run webpack",
+    "build": "npm run webpack",
     "webpack": "NODE_ENV=production node_modules/webpack/bin/webpack.js --config ./webpack.production.config.js --progress",
     "start": "npm run build && node public/bundle.js",
-    "dev": "npm run copy && node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --host 0.0.0.0"
+    "dev": "node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --host 0.0.0.0"
   },
   "author": "",
   "license": "ISC",
@@ -25,6 +24,7 @@
     "bluebird": "^3.4.6",
     "chai": "^3.5.0",
     "classnames": "^2.2.5",
+    "copy-webpack-plugin": "^4.0.0",
     "css-loader": "^0.25.0",
     "json-loader": "^0.5.4",
     "mocha": "^3.1.0",
@@ -33,7 +33,6 @@
     "precss": "^1.4.0",
     "ramda": "^0.22.1",
     "react": "^15.3.1",
-    "react-addons-css-transition-group": "^15.3.2",
     "react-dom": "^15.3.1",
     "react-motion": "^0.4.5",
     "react-redux": "^4.4.5",
@@ -46,5 +45,8 @@
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.15.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "humanize-string": "^1.0.1",
+    "react": "^15.3.2"
+  }
 }
