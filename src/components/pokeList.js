@@ -15,7 +15,6 @@ class PokeList extends React.Component {
   }
 
   loadMore() {
-    console.log('loadMore');
     return this.props.dispatch(actions.getPokedex());
   }
 
@@ -40,8 +39,7 @@ class PokeList extends React.Component {
         loadMore={this.loadMore.bind(this)}
         pageStart={0}
         hasMore={true}
-        loader={<img style={{height: 100, width: '100%', objectFit: 'contain'}} src="img/mew_loading.gif" />}
-        threshold={500}>
+        loader={<img style={{height: 100, width: '100%', objectFit: 'contain'}} src="img/mew_loading.gif" />}>
 
         <PokemonAnimatedList pokemon={this.state.pokemon} />
 

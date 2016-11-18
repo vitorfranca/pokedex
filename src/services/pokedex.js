@@ -10,7 +10,6 @@ let next;
 
 module.exports = {
   get: () => {
-    console.log('next', next);
     if(next)
       return request.get(next)
         .then(response => {
@@ -18,7 +17,7 @@ module.exports = {
           return response.data.results
         });
     else
-      return request.get('pokemon?limit=12')
+      return request.get('pokemon?limit=30')
         .then((response) => {
           next = response.data.next;
           return response.data.results
