@@ -5,7 +5,10 @@ import styles from './main.css';
 import Store from './store';
 import App from './app';
 
-const store = Store.set({});
+const store = Store.set({
+  pokemon: [],
+  filter: ''
+});
 
 render(
   <Provider store={store}>

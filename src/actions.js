@@ -10,7 +10,7 @@ export const FILTER = 'FILTER';
 
 export function getPokedex() {
   return (dispatch) => {
-    return pokedex.get(15).then((pokemon) => {
+    return pokedex.get().then((pokemon) => {
       return dispatch({
         type: GET_POKEDEX,
         pokemon

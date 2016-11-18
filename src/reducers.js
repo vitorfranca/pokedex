@@ -18,13 +18,16 @@ let reducer = (state = {}, action) => {
   switch(action.type) {
     case actions.GET_POKEDEX:
       return newState({
-        pokemon: R.map((pkmn) => {
-          return {
-            ...pkmn,
-            _id: getIdFromUrl(pkmn.url),
-            name: humanize(pkmn.name)
-          };
-        }, action.pokemon)
+        pokemon: [
+          ...state.pokemon, 
+          ...R.map((pkmn) => {
+            return {
+              ...pkmn,
+              _id: getIdFromUrl(pkmn.url),
+              name: humanize(pkmn.name)
+            };
+          }, action.pokemon)
+        ]
       });
 
     case actions.SELECT_POKEMON:

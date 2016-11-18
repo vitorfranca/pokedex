@@ -6,10 +6,25 @@ config = require('../config');
 
 let Q = require('bluebird');
 
+let next;
+
 module.exports = {
-  get: (limit, offset) => request.get(`pokemon?offset=${offset || 0}&limit=${limit || 3}`)
-    .then((response) =>  response.data.results)
-  // get: (limit, offset) => {
+  get: () => {
+    console.log('next', next);
+    if(next)
+      return request.get(next)
+        .then(response => {
+          next = response.data.next;
+          return response.data.results
+        });
+    else
+      return request.get('pokemon?limit=12')
+        .then((response) => {
+          next = response.data.next;
+          return response.data.results
+        });
+  }
+  // get: () => {
   // return Q.resolve([
   //   {
   //     url: "http://pokeapi.co/api/v2/pokemon/1/",

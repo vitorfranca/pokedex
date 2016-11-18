@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as actions from './actions';
 import R from 'ramda';
 
 import PokeList from './components/pokeList';
@@ -10,17 +9,13 @@ import Filter from './components/filter';
 import db from './services/database';
 
 class App extends React.Component {
-  componentWillMount() {
-    this.props.dispatch(actions.getPokedex());
-  }
-
   render() {
-    const { pokemon, selectedPokemon, filter } = this.props;
+    const { selectedPokemon } = this.props;
 
     return (
       <div style={{width: '100vw', height: '100vh', overflow: 'auto'}}>
         <Filter />
-        { !!pokemon.length && <PokeList pokemon={pokemon} filter={filter} /> }
+        <PokeList />
         { selectedPokemon && <PokeDetails /> }
       </div>
     );
@@ -29,8 +24,6 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    pokemon: R.propOr([], 'pokemon')(state),
-    filter: state.filter,
     selectedPokemon: state.selectedPokemon
   };
 }
